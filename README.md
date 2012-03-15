@@ -1,12 +1,14 @@
 # spawn-fcgi module #
 Author	: Lars Fronius <lars@jimdo.com>
+
 Version	: 0.1
+
 Licence	: GPLv3
 
 Fully puppet-lint compliant module for configuring spawn-fcgi pools via puppet.
 
 ## Intro ##
-
+```
 This module installs spawn-fcgi.
 It is fully tested on Debian Squeeze.
 
@@ -16,15 +18,15 @@ Pool-Configuration is made by 'spawn-fcgi::pool' definition.
 There is a wrapper for php-pool definitions in 'spawn-fcgi::php-pool'
 
 See below for details.
-
+```
 ## Class: spawn-fcgi ##
-
+```
 This class manage spawn-fcgi installation and init.d placement.
 Use spawn-fcgi::pool or spawn-fcgi::php-pool for configuring spawn-fcgi worker pools.
-
+```
 
 ## Define: spawn-fcgi::pool ##
-
+```
 Defines spawn-fcgi pools. Places all pool snippets into
 /etc/spawn-fcgi, where they will be automatically loaded
 
@@ -55,10 +57,10 @@ Parameters :
       Defaults to 'www-data'
    * group: set group to run fcgi procs with
       Defaults to 'www-data'
-
+```
 
 ## Define: spawn-fcgi::php-pool ##
-
+```
 Define : spawn-fcgi::php-pool
 
 Define a spawn-fcgi pool snippet for php worker. Places all pool snippets into
@@ -88,12 +90,13 @@ Parameters :
       Defaults to 'www-data'
    * group: set group to run fcgi procs with
       Defaults to 'www-data'
-
+```
 ## Sample Usage ##
-
+```
    include spawn-fcgi
    spawn-fcgi::php-pool { "global":
        ensure   => present,
        order    => '000',
        children => '15'
    }
+```
