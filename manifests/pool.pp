@@ -39,7 +39,6 @@ define spawn-fcgi::pool (
     $pool_name      = undef,
     $fcgi_app       = undef,
     $fcgi_app_args  = undef,
-    $ensure         = 'present',
     $ip             = undef,
     $port           = '9000',
     $socket         = undef,
